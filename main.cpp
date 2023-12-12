@@ -12,12 +12,12 @@ typedef struct Result {
 } Result;
 
 void method_a(ld epsilon, Result *result) {
-  ld integral = 0, x = 1;
+  ld riemann = 0, x = 1;
   ull iterations = 0;
-  for (ull n = 2; fabs(integral - 1) > epsilon; n++) {
-    integral = 0;
-    for (ull i = 0; integral < 1; i++) {
-      integral += (1.0 / (1 + (1.0/n)*i)) * (1.0/n);
+  for (ull n = 2; fabs(riemann - 1) > epsilon; n++) {
+    riemann = 0;
+    for (ull i = 0; riemann < 1; i++) {
+      riemann += (1.0 / (1 + (1.0/n)*i)) * (1.0/n);
       x = 1 + (1.0/n)*i;
       iterations++;
     }
