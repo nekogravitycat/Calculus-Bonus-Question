@@ -9,8 +9,12 @@ typedef struct Result {
 } Result;
 
 void method_a(double epsilon, Result *result) {
-  
-  
+  while (1) {
+    int sum = 0;
+    while (abs(sum - 1) > epsilon) {
+
+    }
+  }
 }
 
 void method_b(double epsilon, Result *result) {
@@ -22,7 +26,7 @@ void method_b(double epsilon, Result *result) {
     n++;
   }
   result->e = limit;
-  result->iterations = n;
+  result->iterations = n - 1;
 }
 
 void method_c(double epsilon, Result *result) {
