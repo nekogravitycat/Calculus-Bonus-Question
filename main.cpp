@@ -1,49 +1,56 @@
 #include <iostream>
 #include <cmath>
 
+#define ull unsigned long long
+#define ld long double
+
 using namespace std;
 
 typedef struct Result {
-  double e;
-  int iterations;
+  ld e;
+  ull iterations;
 } Result;
 
-void method_a(double epsilon, Result *result) {
-  while (1) {
-    int sum = 0;
-    while (abs(sum - 1) > epsilon) {
-
+void method_a(ld epsilon, Result *result) {
+  ld integral = 0, x = 1;
+  ull iterations = 0;
+  for (ull n = 2; fabs(integral - 1) > epsilon; n++) {
+    integral = 0;
+    for (ull i = 0; integral < 1; i++) {
+      integral += (1.0 / (1 + (1.0/n)*i)) * (1.0/n);
+      x = 1 + (1.0/n)*i;
+      iterations++;
     }
   }
+  result->e = x;
+  result->iterations = iterations;
 }
 
-void method_b(double epsilon, Result *result) {
-  double limit = 1, limit_prevoius = 0;
-  int n = 1;
-  while (abs(limit - limit_prevoius) > epsilon) {
+void method_b(ld epsilon, Result *result) {
+  ld limit = 1, limit_prevoius = 0;
+  ull n = 1;
+  for (n = 1; fabs(limit - limit_prevoius) > epsilon; n++) {
     limit_prevoius = limit;
     limit = pow((1+1.0/n), n);
-    n++;
   }
   result->e = limit;
   result->iterations = n - 1;
 }
 
-void method_c(double epsilon, Result *result) {
-  double sum = 1, sum_previous = 0;
-  long long denominator = 1;
-  int n = 1;
-  while (abs(sum - sum_previous) > epsilon) {
+void method_c(ld epsilon, Result *result) {
+  ld sum = 1, sum_previous = 0;
+  ull n = 1;
+  for (ull denominator = 1; fabs(sum - sum_previous) > epsilon; n++) {
     sum_previous = sum;
-    denominator *= n++;
+    denominator *= n;
     sum += 1.0 / denominator;
   }
   result->e = sum;
-  result->iterations = n;
+  result->iterations = n - 1;
 }
 
 int main() {
-  double epsilon = 1e-10;
+  ld epsilon = 1e-10;
 
   cout << "Method A" << endl;
   Result result_a;
