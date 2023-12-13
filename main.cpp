@@ -50,7 +50,7 @@ void method_c(ld epsilon, Result *result) {
 }
 
 int main() {
-  ld epsilon = 1e-10;
+  const ld epsilon = 1e-10;
 
   cout << "Method A" << endl;
   Result result_a;
