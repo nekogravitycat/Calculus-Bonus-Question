@@ -18,7 +18,7 @@ void method_a(ld epsilon, Result *result) {
     riemann = 0;
     for (ull i = 0; riemann < 1; i++) {
       x = 1 + (1.0/n)*i;
-      riemann += (1.0 / x) * (1.0/n);
+      riemann += (1.0/x) * (1.0/n);
       iterations++;
     }
   }
