@@ -1,10 +1,10 @@
 We have three ways to define the Euler number 𝑒, as follow:
 
-1. The number 𝑒 is the number in the domain of the natural logarithm that satisfies $\ln 𝑒 = \int_{1}^{e} \frac{1}{t} dt = 1$
+1. The number 𝑒 is the number in the domain of the natural logarithm that satisfies $\ln e = \int_{1}^{e} \frac{1}{t} dt = 1$
 
-2. $𝑒 = \lim_{\delta \to 0}(1+\delta)^{\frac{1}{\delta}} = \lim_{n \to \infty } (1+\frac{1}{n})^{n}$
+2. $e = \lim_{\delta \to 0}(1+\delta)^{\frac{1}{\delta}} = \lim_{n \to \infty } (1+\frac{1}{n})^{n}$
 
-3. $𝑒 = \sum_{n=0}^{\infty}\frac{1}{n!}$
+3. $e = \sum_{n=0}^{\infty}\frac{1}{n!}$
 
 Is it possible to write codes to compute the number 𝑒 based on the above definitions? Which definition provides the most efficient approach to approximate the number 𝑒? In your answer, you should make sure the following:
 
