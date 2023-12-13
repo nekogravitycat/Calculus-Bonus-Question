@@ -1,6 +1,5 @@
 #include <iostream>
 #include <iomanip>
-#include <cmath>
 
 #define ull unsigned long long
 #define ld long double
@@ -13,9 +12,9 @@ typedef struct Result {
 } Result;
 
 void method_a(ld epsilon, Result *result) {
-  ld riemann = 0, x = 1;
+  ld riemann = 2, x = 1;
   ull iterations = 0;
-  for (ull n = 2; abs(riemann - 1.0) > epsilon; n++) {
+  for (ull n = 2; riemann - 1.0 > epsilon; n++) {
     riemann = 0;
     for (ull i = 0; riemann < 1; i++) {
       x = 1 + (1.0/n)*i;
