@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <cmath>
 
 #define ull unsigned long long
@@ -62,7 +63,8 @@ void method_c(ld epsilon, Result *result) {
 int main() {
   const ld epsilon = 1e-10;
   cout << "Epsilon: " << epsilon << endl;
-  cout << endl;
+  
+  cout << endl << fixed << setprecision(10);
 
   cout << "Method A" << endl;
   Result result_a;
