@@ -30,7 +30,7 @@ void method_a(ld epsilon, Result *result) {
 void method_b(ld epsilon, Result *result) {
   ld limit = 1, limit_prevoius = 0;
   ull iterations = 0;
-  for (ull n = 1; abs(limit - limit_prevoius) > epsilon; n++) {
+  for (ull n = 1; limit - limit_prevoius > epsilon; n++) {
     limit_prevoius = limit;
     // limit = pow((1+1.0/n), n);
     // Binary Exponentiation: a^b
@@ -51,7 +51,7 @@ void method_b(ld epsilon, Result *result) {
 void method_c(ld epsilon, Result *result) {
   ld sum = 1, sum_previous = 0;
   ull n = 1;
-  for (ull denominator = 1; abs(sum - sum_previous) > epsilon; n++) {
+  for (ull denominator = 1; sum - sum_previous > epsilon; n++) {
     sum_previous = sum;
     denominator *= n;
     sum += 1.0 / denominator;
